@@ -194,18 +194,19 @@ void entanglePlot(Double_t thetaMin=67, Double_t thetaMax=97)
 	cos2phi_pol->Draw("same");
 //	TLegend* leg5 = new TLegend(0.6,0.75,0.9,0.9);
 //	TLegend* leg5 = new TLegend(0.56,0.1,0.84,0.25);
-	TLegend* leg5 = new TLegend(0.6,0.8,0.95,0.95);
+	TLegend* leg5 = new TLegend(0.4,0.87,0.99,0.99);
 //	leg5->AddEntry(cztEntNorm_h,cztEnt_h->GetTitle());
 //	leg5->AddEntry(cztEntNorm_h,Form("QE-G4 Simulation (enh.=%.3f)",enh_cztEnt));
 //	leg5->AddEntry(cztUnentNorm_h,cztUnent_h->GetTitle());
 //	leg5->AddEntry(cztUnentNorm_h,Form("G4 Simulation (enh.=%.3f)",enh_cztUnent));
 //	leg5->AddEntry(cos2phi_ent,Form("Theoretical (Entangled) (enh.=%.3f)",enh_ent));
 //	leg5->AddEntry(cos2phi_pol,Form("Theoretical (Independent) (enh.=%.3f)",enh_pol));
-	leg5->AddEntry(cztEntNorm_h,"QE-G4 Simulation","ep");
-	leg5->AddEntry(cztUnentNorm_h,"G4 Simulation","ep");
+	leg5->SetNColumns(2);
+	leg5->AddEntry(cztEntNorm_h,"QE-Geant4 Simulation","ep");
+	leg5->AddEntry(cztUnentNorm_h,"Geant4 Simulation","ep");
 	leg5->AddEntry(cos2phi_ent,"Theoretical (Entangled)","l");
 	leg5->AddEntry(cos2phi_pol,"Theoretical (Independent)","l");
-//	leg5->Draw();
+	leg5->Draw();
 	
 //	c5->cd(4);
 //	cos2phi_ent->Draw("");
