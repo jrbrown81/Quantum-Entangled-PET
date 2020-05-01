@@ -1,0 +1,91 @@
+
+tangle2/INSTALL.txt  John Allison  May 2017
+
+This is a standard Geant4 application - see Geant4 Application Developers Guide,
+Section 2.8. How to Make an Executable Program.
+
+Make sure it runs with your installed Geant4 libraries.
+
+Copy special versions of some Geant4 source files into your Geant4 source tree.
+
+# Tailor these to your own directory structure:
+g4source=/Users/johna/Geant4/geant4-10-05/source
+changes=/Users/johna/Geant4/Entanglement/tangle2/geant4.10.5-changes
+
+# Then define
+files="\
+processes/management/sources.cmake \
+processes/management/include/G4ProcessTable.hh \
+processes/management/include/G4ProcessTable.icc \
+processes/management/include/G4ProcessTableMessenger.hh \
+processes/management/include/G4EntanglementAuxInfo.hh \
+processes/management/include/G4VEntanglementClipBoard.hh \
+processes/management/include/G4JPZeroMinusGammaGammaEntanglementClipBoard.hh \
+processes/management/src/G4ProcessTable.cc \
+processes/management/src/G4ProcessTableMessenger.cc \
+processes/electromagnetic/standard/src/G4eplusAnnihilation.cc \
+processes/electromagnetic/lowenergy/src/G4LivermorePolarizedComptonModel.cc \
+processes/decay/sources.cmake \
+processes/decay/include/G4PionZeroDecay.hh \
+processes/decay/include/G4PionZeroEntanglementClipBoard.hh \
+processes/decay/include/G4DecayProcessType.hh \
+processes/decay/src/G4PionZeroDecay.cc \
+run/src/G4PhysicsListHelper.cc \
+physics_lists/constructors/decay/src/G4DecayPhysics.cc \
+"
+
+# Then
+for i in $files
+do
+cp $changes/$i $g4source/$i
+done
+
+Then run cmake again ("cmake .") and make.
+
+========================================================
+
+The following is for advanced developers who want to copy changes in the Geant4
+source tree back into tangle2, with a view to updating the git repository.
+
+g4source=/Users/johna/Geant4/Entanglement/geant-entanglement/geant4-dev/source
+changes=/Users/johna/Geant4/Entanglement/tangle2/geant4.10.6-changes
+tests=/Users/johna/Geant4/Entanglement/geant-entanglement/geant4-dev/tests
+
+#A - Between g4source and changes...
+
+# files as above
+
+# Normal case - transfer from Geant4 to tangle2
+a=$g4source
+b=$changes
+# When setting up Geant4 from tangle2
+a=$changes
+b=$g4source
+
+----------------------------------------------
+
+#B - Between tangle2 itself and geant4-entanglement/geant4-dev.git
+
+files="*txt LICENSE *mac whist.pl tangle2.cc include/*hh src/*cc"
+
+# Normal case - transfer from Geant4 to tangle2
+a=$tests/tangle2
+b=./
+# When setting up Geant4 from tangle2
+a=./
+b=$tests/tangle2
+
+---------------------------------------------
+
+# First check for differences:
+for i in $files
+do
+diff -q $a/$i $b/$i >/dev/null || \
+opendiff $a/$i $b/$i
+done
+
+# If all's well
+for i in $files
+do
+cp $a/$i $b/$i
+done

@@ -1,0 +1,11 @@
+
+tangle2/RUN.txt  John Allison  January 2019
+
+This is a standard Geant4 application - see Geant4 Application Developers Guide,
+Section 2.8. How to Make an Executable Program.
+
+See INSTALL.txt for installation.
+
+At run time you may switch entanglement off with
+/process/eplusAnnihilationEntanglement false
+(Note: entangle is on by default.)

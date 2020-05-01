@@ -1,0 +1,8 @@
+/shared/storage/physhad/Medical/entangledG4-applications/originals_JohnAllison/QE-PET/build/CMakeFiles/install/strip.dir
+/shared/storage/physhad/Medical/entangledG4-applications/originals_JohnAllison/QE-PET/build/CMakeFiles/install/local.dir
+/shared/storage/physhad/Medical/entangledG4-applications/originals_JohnAllison/QE-PET/build/CMakeFiles/tangle2_exec.dir
+/shared/storage/physhad/Medical/entangledG4-applications/originals_JohnAllison/QE-PET/build/CMakeFiles/tangle2.dir
+/shared/storage/physhad/Medical/entangledG4-applications/originals_JohnAllison/QE-PET/build/CMakeFiles/install.dir
+/shared/storage/physhad/Medical/entangledG4-applications/originals_JohnAllison/QE-PET/build/CMakeFiles/edit_cache.dir
+/shared/storage/physhad/Medical/entangledG4-applications/originals_JohnAllison/QE-PET/build/CMakeFiles/rebuild_cache.dir
+/shared/storage/physhad/Medical/entangledG4-applications/originals_JohnAllison/QE-PET/build/CMakeFiles/list_install_components.dir

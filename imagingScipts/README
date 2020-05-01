@@ -1,0 +1,31 @@
+The images reconstruction is based on three C++ scripts from the single-slice rebinning filtered back projection
+algorithm implemented in GAMOS:
+
+- "lm2pd_scatter" to histogram data of true + scatter coincidences into sinograms
+
+- "lm2pd_random" to histogram data of true + random coincidences into sinograms
+
+- "ssrb_fbp" to reconstruct images
+
+To run lm2pd_scatter(random):
+
+g++ lm2pd_scatter(random).cc -o lm2pd_scatter(random)
+
+./lm2pd_scatter(random) -b coincidenceType -f phiMin -g phiMax
+
+The default theta windows is [67°, 97°].
+
+Coincidence type "lm2pd_scatter": -1 (true + scatter), 0 (true), 1 (scatter)
+Coincidence type "lm2pd_random": -1 (true + random), 0 (true), 1 (random)
+
+phiMin and phiMax are the lower and upper endpoints of the |deltaPhi| window, respectively
+
+To run "ssrb_fbp":
+
+g++ ssrb_fbp -o ssrb_fbp -lfftw3
+
+./ssrb_fbp -m -1
+
+
+
+
